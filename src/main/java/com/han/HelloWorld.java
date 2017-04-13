@@ -1,4 +1,4 @@
-package han.test;
+package com.han;
 
 public class HelloWorld {
     public static void main(String[] args) {
