@@ -10,6 +10,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -60,15 +61,17 @@ public class TestRedisCluster{
         jedisCluster.subscribe(new JedisPubSubListener(), "channel1");
     }
 
-    @After
-    public void after() {
-        try {
-            jedisCluster.close();
-            System.out.println("jedisCluster has success closed");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    /**
+     * 测试列表（队列）
+     */
+    @Test
+    public void testRedisList(){
+        String value = jedisCluster.lindex("list1", 0);
+        System.out.println(value);
+        List<String> list1 = jedisCluster.blpop(60, "list1");
+        System.out.println(list1);
     }
+
 
     public JedisCluster getJedisCluster() {
         return jedisCluster;
