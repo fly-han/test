@@ -18,10 +18,10 @@ public class RedisJava {
         System.out.println(name);
         Set<String> keys = jedis.keys("*");
         System.out.println(keys);
-//        jedis.lpush("nameList","name1");
-//        jedis.lpush("nameList","name2");
-//        List<String> nameList = jedis.lrange("nameList", 0, 2);
-//        jedis.expire("nameList",100);
-//        System.out.println(nameList);
+        jedis.lpush("nameList","name1");
+        jedis.lpush("nameList","name2");
+        List<String> nameList = jedis.lrange("nameList", 0, 2);
+        jedis.expire("nameList",100);
+        System.out.println(nameList);
     }
 }
