@@ -3,17 +3,18 @@ package com.han.arithmetic;
 import java.util.Stack;
 
 /**
+ * 栈的转置
  * Created by hanfei3 on 2017/6/26.
  */
 public class StackTest {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
-//        stack.push(1);
-//        stack.push(2);
-//        stack.push(3);
-//        stack.push(4);
-//        stack.push(5);
-////        reverse(stack);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        reverse(stack);
         while (!stack.isEmpty()) {
             System.out.println(stack.pop());
         }
